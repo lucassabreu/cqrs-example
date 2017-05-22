@@ -1,0 +1,3 @@
+#!/bin/sh
+
+docker-compose exec query php vendor/bin/doctrine.php $@
