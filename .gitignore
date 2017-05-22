@@ -1,0 +1,8 @@
+.idea
+
+clover.xml
+coveralls-upload.json
+phpunit.xml
+vendor/
+.data
+.php_cs.cache
