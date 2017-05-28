@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/*
+/**
  * @ORM\Entity
  * @ORM\Table(name="account")
  */
@@ -12,25 +12,28 @@ class Account
 {
     /**
      * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO");
      * @ORM\Column(name="id", type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /*
-     * @ORM\Column(name="name", type="string", length=50)
+    /**
+     * @ORM\Column(name="name", type="string", length=100)
      */
     private $name;
-
-    /*
-     * @ORM\Column(name="initial_balance", type="float", length=18, precision=2)
+    /**
+     * @ORM\Column(name="initial_balance", type="decimal", precision=18, scale=2)
      */
     private $initialBalance;
+    /**
+     * @ORM\OneToMany(targetEntity="Movement", mappedBy="account")
+     */
+    private $movements;
 
-    public function __contructor(string $name, float $initialBalance)
+    public function __construct(string $name, float $initialBalance = 0)
     {
         $this->name = $name;
         $this->initialBalance = $initialBalance;
+        $this->movements = new \Doctrine\Common\Collections\ArrayCollection;
     }
 
     public function getName() : string
