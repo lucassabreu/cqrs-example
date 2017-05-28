@@ -26,4 +26,5 @@
  * );
  */
 
+$app->post('/account/create', App\Action\CreateAccountAction::class, 'create_account');
 $app->get('/api/ping', App\Action\PingAction::class, 'api.ping');
