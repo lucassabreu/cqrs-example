@@ -15,6 +15,6 @@ class AccountCreateAction implements \Interop\Http\ServerMiddleware\MiddlewareIn
         \Psr\Http\Message\ServerRequestInterface $request,
         \Interop\Http\ServerMiddleware\DelegateInterface $delegate
     ) {
-        return new \Zend\Diactoros\Response\JsonResponse([]);
+        return new \Zend\Diactoros\Response\JsonResponse($request->getParsedBody());
     }
 }

@@ -26,5 +26,14 @@
  * );
  */
 
-$app->post('/account/create', App\Action\CreateAccountAction::class, 'create_account');
+use Zend\Expressive\Helper\BodyParams\BodyParamsMiddleware;
+
+$app->post(
+    '/account/create', 
+    [
+        BodyParamsMiddleware::class,
+        App\Action\AccountCreateAction::class
+    ], 
+    'create_account'
+);
 $app->get('/api/ping', App\Action\PingAction::class, 'api.ping');

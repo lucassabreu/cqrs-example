@@ -37,7 +37,7 @@ class ConfigProvider
                 Action\PingAction::class => Action\PingAction::class,
             ],
             'factories'  => [
-                Action\CreateAccountAction::class => Action\EntityManagerActionFactory::class,
+                Action\AccountCreateAction::class => Action\EntityManagerActionFactory::class,
             ],
         ];
     }
