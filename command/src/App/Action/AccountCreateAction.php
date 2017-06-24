@@ -23,6 +23,14 @@ class AccountCreateAction implements \Interop\Http\ServerMiddleware\MiddlewareIn
             throw new \Exception("You must inform a name to create a Account !");
         }
 
-        return new JsonResponse($data);
+        if (!isset($data['initialBalance'])) {
+            $data['initialBalance'] = 0;
+        }
+
+        $account = new \App\Model\Account($data['name'], $data['initialBalance']);
+        $this->entityManager->persist($account);
+        $this->entityManager->flush();
+
+        return new JsonResponse([ 'id' => $account->getId()]);
     }
 }
