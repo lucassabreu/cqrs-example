@@ -35,6 +35,7 @@ $app->pipe(ServerUrlMiddleware::class);
 
 // Register the routing middleware in the middleware pipeline
 $app->pipeRoutingMiddleware();
+$app->pipe(\Zend\Expressive\Helper\BodyParams\BodyParamsMiddleware::class);
 $app->pipe(ImplicitHeadMiddleware::class);
 $app->pipe(ImplicitOptionsMiddleware::class);
 $app->pipe(UrlHelperMiddleware::class);
