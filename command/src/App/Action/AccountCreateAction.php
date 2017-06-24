@@ -2,6 +2,8 @@
 
 namespace App\Action;
 
+use Zend\Diactoros\Response\JsonResponse;
+
 class AccountCreateAction implements \Interop\Http\ServerMiddleware\MiddlewareInterface
 {
     private $entityManager;
@@ -15,6 +17,12 @@ class AccountCreateAction implements \Interop\Http\ServerMiddleware\MiddlewareIn
         \Psr\Http\Message\ServerRequestInterface $request,
         \Interop\Http\ServerMiddleware\DelegateInterface $delegate
     ) {
-        return new \Zend\Diactoros\Response\JsonResponse($request->getParsedBody());
+        $data = $request->getParsedBody();
+
+        if (!isset($data['name'])) {
+            throw new \Exception("You must inform a name to create a Account !");
+        }
+
+        return new JsonResponse($data);
     }
 }

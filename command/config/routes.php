@@ -29,11 +29,13 @@
 use Zend\Expressive\Helper\BodyParams\BodyParamsMiddleware;
 
 $app->post(
-    '/account/create', 
+    '/api/account/create',
     [
         BodyParamsMiddleware::class,
         App\Action\AccountCreateAction::class
-    ], 
+    ],
     'create_account'
 );
 $app->get('/api/ping', App\Action\PingAction::class, 'api.ping');
+$app->get('/', App\Action\PingAction::class, 'home');
+
