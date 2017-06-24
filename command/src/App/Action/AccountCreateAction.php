@@ -20,7 +20,7 @@ class AccountCreateAction implements \Interop\Http\ServerMiddleware\MiddlewareIn
         $data = $request->getParsedBody();
 
         if (!isset($data['name'])) {
-            throw new \Exception("You must inform a name to create a Account !");
+            throw new \App\Core\Exception\MiddlewareException("You must inform a name to create a Account !");
         }
 
         if (!isset($data['initialBalance'])) {
