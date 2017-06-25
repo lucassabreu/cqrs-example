@@ -2,7 +2,7 @@
 
 namespace App\Core\Exception;
 
-class MiddlewareException extends \RuntimeException
+abstract class MiddlewareException extends \RuntimeException
 {
     protected $statusCode = 403;
     protected $additionalData = [];
