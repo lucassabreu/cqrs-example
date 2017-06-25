@@ -31,6 +31,14 @@ class Account
 
     public function __construct(string $name, float $initialBalance = 0)
     {
+        if ($initialBalance < 0) {
+            throw Account\AccountException::initialBalanceShouldNotBeNegative($initialBalance);
+        }
+
+        if (empty($name)) {
+            throw Account\AccountException::nameShouldNotBeEmpty($name);
+        }
+
         $this->name = $name;
         $this->initialBalance = $initialBalance;
         $this->movements = new \Doctrine\Common\Collections\ArrayCollection;

@@ -2,8 +2,6 @@
 
 namespace App\Action;
 
-use Zend\Diactoros\Response\JsonResponse;
-
 class AccountCreateAction implements \Interop\Http\ServerMiddleware\MiddlewareInterface
 {
     private $entityManager;
@@ -20,7 +18,7 @@ class AccountCreateAction implements \Interop\Http\ServerMiddleware\MiddlewareIn
         $data = $request->getParsedBody();
 
         if (!isset($data['name'])) {
-            throw new \App\Core\Exception\MiddlewareException("You must inform a name to create a Account !");
+            throw \App\Model\Account\AccountException::nameShouldNotBeEmpty();
         }
 
         if (!isset($data['initialBalance'])) {
@@ -31,6 +29,6 @@ class AccountCreateAction implements \Interop\Http\ServerMiddleware\MiddlewareIn
         $this->entityManager->persist($account);
         $this->entityManager->flush();
 
-        return new JsonResponse([ 'id' => $account->getId()]);
+        return new \Zend\Diactoros\Response\JsonResponse([ 'id' => $account->getId()]);
     }
 }
