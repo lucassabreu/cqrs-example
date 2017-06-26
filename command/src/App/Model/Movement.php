@@ -54,6 +54,11 @@ class Movement
         $this->date = $date ?: new DateTime;
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
     public function setValue(float $value) : self
     {
         if ($value === 0) {
