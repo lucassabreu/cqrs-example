@@ -12,7 +12,7 @@ use DateTime;
 class Movement
 {
     const INCREASE = 1;
-    const DESCREASE = 0;
+    const DECREASE = 0;
 
     /**
      * @ORM\Id
