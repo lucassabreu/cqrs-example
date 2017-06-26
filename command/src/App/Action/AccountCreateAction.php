@@ -29,6 +29,6 @@ class AccountCreateAction implements \Interop\Http\ServerMiddleware\MiddlewareIn
         $this->entityManager->persist($account);
         $this->entityManager->flush();
 
-        return new \Zend\Diactoros\Response\JsonResponse([ 'id' => $account->getId()]);
+        return new \Zend\Diactoros\Response\JsonResponse([ 'id' => $account->getId() ]);
     }
 }
