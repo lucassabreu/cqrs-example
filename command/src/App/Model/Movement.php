@@ -47,6 +47,15 @@ class Movement
         return new self($account, $amount, $when);
     }
 
+    public static function createDecreaseMovementWithAccountDateAndAmount(Account $account, \DateTime $when, float $amount)
+    {
+        if ($amount <= 0) {
+            throw Movement\MovementException::amountShouldBePositive($amount);
+        }
+
+        return new self($account, $amount * -1, $when);
+    }
+
     public function __construct(Account $account, float $value, DateTime $date = null)
     {
         $this->account = $account;
