@@ -41,7 +41,7 @@ class ConfigProvider
             'factories'  => [
                 Action\AccountCreateAction::class => EntityManagerActionFactory::class,
                 Action\AccountIncreaseAction::class => EntityManagerActionFactory::class,
-                Action\AccountDecreaseAction::class => Action\EntityManagerActionFactory::class,
+                Action\AccountDecreaseAction::class => EntityManagerActionFactory::class,
             ],
         ];
     }
