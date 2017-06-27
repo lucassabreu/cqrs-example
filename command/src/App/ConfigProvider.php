@@ -2,6 +2,8 @@
 
 namespace App;
 
+use ZendExpressiveHelpers\Action\EntityManagerActionFactory;
+
 /**
  * The configuration provider for the App module
  *
@@ -37,7 +39,7 @@ class ConfigProvider
                 Action\PingAction::class => Action\PingAction::class,
             ],
             'factories'  => [
-                Action\AccountCreateAction::class => Action\EntityManagerActionFactory::class,
+                Action\AccountCreateAction::class => EntityManagerActionFactory::class,
                 Action\AccountIncreaseAction::class => Action\EntityManagerActionFactory::class,
                 Action\AccountDecreaseAction::class => Action\EntityManagerActionFactory::class,
             ],
