@@ -15,7 +15,7 @@ use Zend\Stratigility\Middleware\ErrorHandler;
 // all Exceptions.
 $app->pipe(ErrorHandler::class);
 $app->pipe(ServerUrlMiddleware::class);
-$app->pipe(\App\Core\ErrorHandler\JsonErrorHandlerMiddleware::class);
+$app->pipe(\ZendExpressiveHelpers\ErrorHandler\JsonErrorHandlerMiddleware::class);
 
 // Pipe more middleware here that you want to execute on every request:
 // - bootstrapping
