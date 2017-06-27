@@ -3,8 +3,8 @@
 return [
     'dependencies' => [
         'factories' => [
-            \Doctrine\ORM\EntityManager::class => \App\Container\EntityManagerFactory::class,
-            \Doctrine\DBAL\Migrations\Configuration\Configuration::class => \App\Container\DoctrineMigrationsFactory::class,
+            \Doctrine\ORM\EntityManager::class => \ZendExpressiveHelpers\Factory\EntityManagerFactory::class,
+            \Doctrine\DBAL\Migrations\Configuration\Configuration::class => \ZendExpressiveHelpers\Factory\DoctrineMigrationsFactory::class,
         ],
     ],
 
