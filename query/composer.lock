@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "81f5c81dbebf54937ba6277f900e76bd",
+    "content-hash": "fa3b080e5678713e6106b537672eabbe",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -812,6 +812,36 @@
                 "response"
             ],
             "time": "2017-01-14T15:23:42+00:00"
+        },
+        {
+            "name": "lucassabreu/zend-expressive-helpers",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lucassabreu/zend-expressive-helpers.git",
+                "reference": "5eda55e6bb578c3d36ad2052b982f478caf2be51"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lucassabreu/zend-expressive-helpers/zipball/5eda55e6bb578c3d36ad2052b982f478caf2be51",
+                "reference": "5eda55e6bb578c3d36ad2052b982f478caf2be51",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ZendExpressiveHelpers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Lucas dos Santos Abreu",
+                    "email": "lucas.s.abreu@gmail.com"
+                }
+            ],
+            "description": "Some helpers for Zend Expressive",
+            "time": "2017-06-26T23:43:55+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -3983,6 +4013,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "lucassabreu/zend-expressive-helpers": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": false,
