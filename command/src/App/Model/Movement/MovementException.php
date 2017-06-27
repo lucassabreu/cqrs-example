@@ -2,7 +2,7 @@
 
 namespace App\Model\Movement;
 
-class MovementException extends \App\Core\Exception\MiddlewareException
+class MovementException extends \ZendExpressiveHelpers\ErrorHandler\Exception\MiddlewareException
 {
     public static function requiredValuesNotInformed(array $informedKeys) : self
     {
