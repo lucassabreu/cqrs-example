@@ -2,7 +2,7 @@
 
 namespace App\Model\Account;
 
-class AccountException extends \App\Core\Exception\MiddlewareException
+class AccountException extends \ZendExpressiveHelpers\ErrorHandler\Exception\MiddlewareException
 {
     public static function initialBalanceShouldNotBeNegative(float $initialBalance) : self
     {
