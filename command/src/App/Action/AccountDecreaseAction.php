@@ -20,7 +20,9 @@ class AccountDecreaseAction implements \Interop\Http\ServerMiddleware\Middleware
         $data = $request->getParsedBody();
 
         if (!isset($data['account'], $data['amount'], $data['date'])) {
-            throw Model\Movement\MovementException::requiredValuesNotInformed(array_keys($data));
+            throw Model\Movement\MovementException::requiredValuesNotInformed(
+                array_keys($data)
+            );
         }
 
         if (!is_int($data['account'])) {
