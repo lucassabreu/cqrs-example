@@ -30,4 +30,4 @@ $app->post('/api/account/create', App\Action\AccountCreateAction::class, 'accoun
 $app->post('/api/account/increase', App\Action\AccountIncreaseAction::class, 'account_increase');
 $app->post('/api/account/decrease', App\Action\AccountDecreaseAction::class, 'account_decrease');
 $app->get('/api/ping', App\Action\PingAction::class, 'api.ping');
-$app->get('/', App\Action\PingAction::class, 'home');
+$app->get('[/]', App\Action\PingAction::class, 'home');
