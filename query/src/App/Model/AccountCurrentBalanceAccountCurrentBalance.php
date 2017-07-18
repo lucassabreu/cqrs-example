@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\AccountCurrentBalance;
 
 use Doctrine\ORM\Mapping as ORM;
 

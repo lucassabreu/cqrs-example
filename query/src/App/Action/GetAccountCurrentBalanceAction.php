@@ -17,7 +17,7 @@ class GetAccountCurrentBalanceAction implements \Interop\Http\ServerMiddleware\M
     ) {
         $id = $request->getAttribute('id');
         $accountBalance = $this->entityManager
-            ->getRepository(\App\Model\AccountCurrentBalance::class)
+            ->getRepository(\App\Model\AccountCurrentBalance\AccountCurrentBalance::class)
             ->findOneById((int) $id);
 
         return new \Zend\Diactoros\Response\JsonResponse([
