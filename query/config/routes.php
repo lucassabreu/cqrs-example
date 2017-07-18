@@ -26,6 +26,6 @@
  * );
  */
 
-$app->get('/api/account/{id:\d+}/current_balance', App\Action\GetAccountCurrentBalanceAction::class, 'api.account.current_balance');
+$app->get('/api/account/{id:\d+}/balance', App\Action\GetAccountCurrentBalanceAction::class, 'api.account.current_balance');
 $app->get('/api/ping', App\Action\PingAction::class, 'api.ping');
 $app->get('[/]', App\Action\PingAction::class, 'home');
