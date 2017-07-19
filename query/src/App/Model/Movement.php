@@ -3,7 +3,6 @@
 namespace App\Model;
 
 use Doctrine\ORM\Mapping as ORM;
-use DateTime;
 
 /**
  * @ORM\Entity
@@ -61,7 +60,7 @@ class Movement
         return $this->account;
     }
 
-    public function getDate() : DateTime
+    public function getDate() : \DateTime
     {
         return $this->date;
     }
