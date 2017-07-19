@@ -21,7 +21,12 @@ class GetAccountCurrentBalanceAction implements \Interop\Http\ServerMiddleware\M
         $id = $request->getAttribute('id');
         $accountBalance = $this->entityManager
             ->createQuery(
-                "SELECT new " . AccountCurrentBalance::class . "(a.id, a.name, SUM(a.initialBalance) + SUM(m.value))
+                "SELECT
+                    new " . AccountCurrentBalance::class . "(
+                        a.id,
+                        a.name,
+                        SUM(a.initialBalance) + SUM(m.value)
+                    )
                     FROM " . Account::class . " a INNER JOIN a.movements m
                     WHERE a.id = :id
                     GROUP BY a.id, a.name"
