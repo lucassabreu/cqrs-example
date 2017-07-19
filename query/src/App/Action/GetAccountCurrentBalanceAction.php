@@ -18,7 +18,11 @@ class GetAccountCurrentBalanceAction implements \Interop\Http\ServerMiddleware\M
         \Psr\Http\Message\ServerRequestInterface $request,
         \Interop\Http\ServerMiddleware\DelegateInterface $delegate
     ) {
-        $id = $request->getAttribute('id');
+        $query = $request->getQueryParams();
+        if (isset($query['id']) === false) {
+            throw new Exception\MissingParametersException([ 'id' ], array_keys($query));
+        }
+
         $accountBalance = $this->entityManager
             ->createQuery(
                 "SELECT
@@ -31,7 +35,7 @@ class GetAccountCurrentBalanceAction implements \Interop\Http\ServerMiddleware\M
                     WHERE a.id = :id
                     GROUP BY a.id, a.name"
             )
-            ->setParameter('id', (int) $id)
+            ->setParameter('id', (int) $query['id'])
             ->getOneOrNullResult();
 
         if (is_null($accountBalance)) {
