@@ -40,6 +40,7 @@ class ConfigProvider
             ],
             'factories'  => [
                 Action\GetAccountCurrentBalanceAction::class => EntityManagerActionFactory::class,
+                Action\GetAccountStatementAction::class => EntityManagerActionFactory::class,
             ],
         ];
     }

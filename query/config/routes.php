@@ -27,5 +27,6 @@
  */
 
 $app->get('/api/account/balance', App\Action\GetAccountCurrentBalanceAction::class, 'api.account.current_balance');
+$app->get('/api/account/{id:\d+}/statement', App\Action\GetAccountStatementAction::class, 'api.account.statement');
 $app->get('/api/ping', App\Action\PingAction::class, 'api.ping');
 $app->get('[/]', App\Action\PingAction::class, 'home');
