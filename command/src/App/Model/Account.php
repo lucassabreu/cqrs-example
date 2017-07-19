@@ -58,4 +58,8 @@ class Account
     {
         return $this->initialBalance;
     }
+
+    public function getMovements() {
+        return $this->movements;
+    }
 }
