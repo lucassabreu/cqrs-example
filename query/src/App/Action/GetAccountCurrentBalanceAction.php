@@ -2,6 +2,9 @@
 
 namespace App\Action;
 
+use App\Model\Account;
+use App\Model\AccountCurrentBalance\AccountCurrentBalance;
+
 class GetAccountCurrentBalanceAction implements \Interop\Http\ServerMiddleware\MiddlewareInterface
 {
     private $entityManager;
@@ -17,8 +20,18 @@ class GetAccountCurrentBalanceAction implements \Interop\Http\ServerMiddleware\M
     ) {
         $id = $request->getAttribute('id');
         $accountBalance = $this->entityManager
-            ->getRepository(\App\Model\AccountCurrentBalance\AccountCurrentBalance::class)
-            ->findOneById((int) $id);
+            ->createQuery(
+                "SELECT new " . AccountCurrentBalance::class . "(a.id, a.name, SUM(a.initialBalance) + SUM(m.value))
+                    FROM " . Account::class . " a INNER JOIN a.movements m
+                    WHERE a.id = :id
+                    GROUP BY a.id, a.name"
+            )
+            ->setParameter('id', (int) $id)
+            ->getOneOrNullResult();
+
+        if (is_null($accountBalance)) {
+            throw new Exception\ModelNotFoundException('Account ' . $id);
+        }
 
         return new \Zend\Diactoros\Response\JsonResponse([
             'id' => $accountBalance->getId(),

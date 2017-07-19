@@ -4,28 +4,17 @@ namespace App\Model\AccountCurrentBalance;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(readOnly=true)
- * @ORM\Table(name="account_current_balance")
- */
 class AccountCurrentBalance
 {
-    /**
-     * @ORM\Id
-     * @ORM\Column(name="id", type="integer")
-     */
     private $id;
-    /**
-     * @ORM\Column(name="name", type="string")
-     */
     private $name;
-    /**
-     * @ORM\Column(name="current_balance", type="decimal", precision=18, scale=2)
-     */
     private $currentBalance;
 
-    private function __construct()
+    public function __construct(int $id, string $name, float $currentBalance)
     {
+        $this->id = $id;
+        $this->name = $name;
+        $this->currentBalance = $currentBalance;
     }
 
     public function getId() : int
